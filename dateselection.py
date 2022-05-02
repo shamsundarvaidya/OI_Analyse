@@ -3,7 +3,7 @@ import time
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtGui as qtg
 from PyQt5 import QtCore as qtc
-from calenderUtility import find_holidays, is_holiday
+from utility.datehelper.calenderUtility import find_holidays, is_holiday
 from jugaad_data.nse import bhavcopy_save, bhavcopy_fo_save
 import sys
 
