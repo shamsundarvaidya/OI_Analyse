@@ -23,6 +23,7 @@ def find_holidays()->list:
 
 
 def is_holiday(dt: date) -> bool:
+    "finds if NSE is closed for the given date "
     holiday_list = find_holidays()
     if dt in holiday_list or dt.weekday() == 5 or dt.weekday() == 6:
         return True
