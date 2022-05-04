@@ -26,7 +26,7 @@ def get_eod_report_date(file_name):
     search_exp = '([0-9]{2}[a-zA-Z]{3}[0-9]{4})'
     res = re.search(search_exp,file_name)
     if res:
-        return datetime.strptime(res.group(0),"%d%b%Y")
+        return datetime.strptime(res.group(0),"%d%b%Y").date()
     else:
         return None
 
