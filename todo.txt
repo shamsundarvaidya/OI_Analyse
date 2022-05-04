@@ -1,4 +1,4 @@
 1)list of csv reports along with dates present folder - done
-2)check if wanted report is already present.
-3)obtain report for given range of dates
-4)
+2)check if wanted report is already present - done
+3)obtain report for given range of dates - done
+4)obtain latest bhav copy - done

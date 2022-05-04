@@ -2,20 +2,39 @@ from datetime import datetime, timedelta
 from datetime import date
 import csv
 import calendar
+import os
+import time
 
 
 __all__ = ['find_holidays','is_holiday','last_day_of_month','getNextWeeklyExpiry',
-            'getMonthlyExpiry']
-
+            'getMonthlyExpiry','get_max_date']
+dir_name = os.path.dirname(__file__)
+holiday_file = os.path.join(dir_name,'./holidays.csv')
 
 holidaydates: date = []
 
+def get_max_date()->date:
+    "Latest date of bhav copy"
+    latest_date = date.today()
+    while is_holiday(latest_date):
+        latest_date = latest_date - timedelta(days=1)
+
+    if latest_date < date.today():
+        return latest_date
+
+    localtime = time.localtime(time.time())
+    hour = localtime.tm_hour
+    
+    if hour < 19 :
+        return latest_date - timedelta(days=1)
+    else:
+        return latest_date
 
 def find_holidays()->list:
     if holidaydates:
         return holidaydates
     else:
-        with open('holidays.csv') as f:
+        with open(holiday_file) as f:
             csv_reader = csv.reader(f, delimiter=',')
             for entry in csv_reader:
                 holidaydates.append(datetime.strptime(entry[2], "%d-%b-%y").date())
