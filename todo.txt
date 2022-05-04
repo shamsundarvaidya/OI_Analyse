@@ -2,3 +2,5 @@
 2)check if wanted report is already present - done
 3)obtain report for given range of dates - done
 4)obtain latest bhav copy - done
+5)extract data from bhavcopy for given comapny - done
+6)

@@ -9,6 +9,7 @@ OI_data.__doc__ = "named tuple to hold OI data : \
     call_oi,call_oi_change,put_oi, put_oi_change"
 
 def get_bhav_oi_data(fpath,company_sym)->tuple:
+    "Extract OI data from bhav copy. Returns a tuple of four data"
     df = pd.read_csv(fpath)
 
     df_ce_filter = (df['SYMBOL'] == company_sym) & (df['INSTRUMENT'] == 'OPTSTK') & (df['OPTION_TYP'] == 'CE')

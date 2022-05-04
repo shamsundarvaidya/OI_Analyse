@@ -1,11 +1,14 @@
 import pandas as pd
+import os
+
+folder_name = os.path.dirname(__file__)
 
 
 lot_size = {}
 
 def update_lot_sizes():
-    
-    df = pd.read_csv('./utility/lotsize/fo_mktlots.csv')
+    "Function to refresh the lot size data from csv file"
+    df = pd.read_csv(os.path.abspath(os.path.join(folder_name,'fo_mktlots.csv')))
     for index, row in df.iterrows():
         sym = str(row[0]).rstrip()
         lot = row[1]
